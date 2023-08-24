@@ -1,0 +1,80 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Aug 23 13:14:54 2023
+# Process ID: 20168
+# Current directory: C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20516 C:\Users\Njfre\Downloads\U55C_SPAR.xpr\ZCU_104_SPAR\ZCU_104_SPAR.xpr
+# Log file: C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/vivado.log
+# Journal file: C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR\vivado.jou
+# Running On: Nathan_Macbook, OS: Windows, CPU Frequency: 2995 MHz, CPU Physical cores: 14, Host memory: 16788 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.srcs/sources_1/bd/config_mpsoc/config_mpsoc.bd}
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {config_mpsoc_rst_clk_wiz_1_100M_1 config_mpsoc_axi_uartlite_0_0 config_mpsoc_clk_wiz_1_1}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {config_mpsoc_rst_clk_wiz_1_100M_1 config_mpsoc_axi_uartlite_0_0 config_mpsoc_clk_wiz_1_1}] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.srcs/sources_1/bd/config_mpsoc/config_mpsoc.bd]
+report_ip_status -name ip_status 
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Clk {New External Port} Manual_Source {Auto}}  [get_bd_pins clk_wiz_1/clk_in1]
+delete_bd_objs [get_bd_nets clk_100MHz_1] [get_bd_ports clk_100MHz]
+startgroup
+set_property CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} [get_bd_cells clk_wiz_1]
+endgroup
+connect_bd_intf_net [get_bd_intf_ports pcie_refclk] [get_bd_intf_pins clk_wiz_1/CLK_IN1_D]
+save_bd_design
+validate_bd_design
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+reset_run synth_1
+reset_run config_mpsoc_mySPAR_v1_0_0_synth_1
+startgroup
+set_property CONFIG.TILE_DIM {3} [get_bd_cells mySPAR_v1_0]
+endgroup
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+startgroup
+set_property CONFIG.ARRAY_DIM {2} [get_bd_cells mySPAR_v1_0]
+endgroup
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+delete_bd_objs [get_bd_intf_nets microblaze_0_axi_periph_M02_AXI] [get_bd_intf_nets microblaze_0_axi_periph_M04_AXI] [get_bd_intf_nets microblaze_0_axi_periph_M05_AXI] [get_bd_intf_nets microblaze_0_axi_periph_M06_AXI] [get_bd_intf_nets axi_apb_bridge_0_APB_M] [get_bd_cells hbm_0]
+save_bd_design
+reset_run impl_1
+set_property name refclk [get_bd_intf_ports pcie_refclk]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+delete_bd_objs [get_bd_intf_nets microblaze_0_axi_periph_M07_AXI] [get_bd_cells axi_apb_bridge_0]
+delete_bd_objs [get_bd_intf_nets microblaze_0_axi_periph_M03_AXI]
+connect_bd_intf_net [get_bd_intf_pins mySPAR_v1_0/S00_AXI] -boundary_type upper [get_bd_intf_pins microblaze_0_axi_periph/M02_AXI]
+startgroup
+set_property CONFIG.NUM_MI {3} [get_bd_cells microblaze_0_axi_periph]
+endgroup
+save_bd_design
+export_ip_user_files -of_objects  [get_files C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.srcs/sources_1/imports/sources_1/bd/config_mpsoc/hdl/config_mpsoc_wrapper.v] -no_script -reset -force -quiet
+remove_files  C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.srcs/sources_1/imports/sources_1/bd/config_mpsoc/hdl/config_mpsoc_wrapper.v
+make_wrapper -files [get_files C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.srcs/sources_1/bd/config_mpsoc/config_mpsoc.bd] -top
+add_files -norecurse c:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.gen/sources_1/bd/config_mpsoc/hdl/config_mpsoc_wrapper.v
+update_compile_order -fileset sources_1
+validate_bd_design -force
+reset_run synth_1
+reset_run config_mpsoc_xbar_7_synth_1
+save_bd_design
+launch_runs impl_1 -jobs 10
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 10
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+archive_project C:/Users/Njfre/Downloads/U55C_SPAR.xpr/U55C_SPAR_Ready.xpr.zip -temp_dir C:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/.Xil/Vivado-20168-Nathan_Macbook -force -exclude_run_results -include_config_settings
