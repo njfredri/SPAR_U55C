@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Wed Aug 23 14:02:19 2023
+-- Date        : Wed Aug 23 23:08:30 2023
 -- Host        : Nathan_Macbook running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/Njfre/Downloads/U55C_SPAR.xpr/ZCU_104_SPAR/ZCU_104_SPAR.gen/sources_1/bd/config_mpsoc/ip/config_mpsoc_dlmb_bram_if_cntlr_1/config_mpsoc_dlmb_bram_if_cntlr_1_stub.vhdl
+--               c:/Users/Njfre/Downloads/U55C_SPAR.xpr/U55C_SPAR_Ready/ZCU_104_SPAR/ZCU_104_SPAR.gen/sources_1/bd/config_mpsoc/ip/config_mpsoc_dlmb_bram_if_cntlr_1/config_mpsoc_dlmb_bram_if_cntlr_1_stub.vhdl
 -- Design      : config_mpsoc_dlmb_bram_if_cntlr_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xcu55c-fsvh2892-2L-e

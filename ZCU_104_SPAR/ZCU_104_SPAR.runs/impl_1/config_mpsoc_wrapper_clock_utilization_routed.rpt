@@ -1,0 +1,1459 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date              : Wed Aug 23 23:22:11 2023
+| Host              : Nathan_Macbook running 64-bit major release  (build 9200)
+| Command           : report_clock_utilization -file config_mpsoc_wrapper_clock_utilization_routed.rpt
+| Design            : config_mpsoc_wrapper
+| Device            : xcu55c-fsvh2892
+| Speed File        : -2L  PRODUCTION 1.30 05-01-2022
+| Temperature Grade : E
+| Design State      : Routed
+-------------------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Global Clock Resources
+3. Global Clock Source Details
+4. Clock Regions : Clock Primitives
+5. Clock Regions : Load Primitives
+6. Clock Regions : Global Clock Summary
+7. Clock Regions : Routing Resource Utilization
+8. Device Cell Placement Summary for Global Clock g0
+9. Device Cell Placement Summary for Global Clock g1
+10. Device Cell Placement Summary for Global Clock g2
+11. Device Cell Placement Summary for Global Clock g3
+12. Device Cell Placement Summary for Global Clock g4
+13. Device Cell Placement Summary for Global Clock g5
+14. Device Cell Placement Summary for Global Clock g6
+15. Device Cell Placement Summary for Global Clock g7
+16. Device Cell Placement Summary for Global Clock g8
+17. Device Cell Placement Summary for Global Clock g9
+18. Device Cell Placement Summary for Global Clock g10
+19. Device Cell Placement Summary for Global Clock g11
+20. Device Cell Placement Summary for Global Clock g12
+21. Device Cell Placement Summary for Global Clock g13
+22. Device Cell Placement Summary for Global Clock g14
+23. Device Cell Placement Summary for Global Clock g15
+24. Device Cell Placement Summary for Global Clock g16
+25. Device Cell Placement Summary for Global Clock g17
+26. Device Cell Placement Summary for Global Clock g18
+27. Device Cell Placement Summary for Global Clock g19
+28. Device Cell Placement Summary for Global Clock g20
+29. Device Cell Placement Summary for Global Clock g21
+30. Device Cell Placement Summary for Global Clock g22
+31. Device Cell Placement Summary for Global Clock g23
+32. Clock Region Cell Placement per Global Clock: Region X3Y0
+33. Clock Region Cell Placement per Global Clock: Region X4Y0
+34. Clock Region Cell Placement per Global Clock: Region X2Y1
+35. Clock Region Cell Placement per Global Clock: Region X3Y1
+36. Clock Region Cell Placement per Global Clock: Region X4Y1
+37. Clock Region Cell Placement per Global Clock: Region X2Y2
+38. Clock Region Cell Placement per Global Clock: Region X3Y2
+39. Clock Region Cell Placement per Global Clock: Region X4Y2
+40. Clock Region Cell Placement per Global Clock: Region X5Y2
+41. Clock Region Cell Placement per Global Clock: Region X4Y4
+
+1. Clock Primitive Utilization
+------------------------------
+
++------------+------+-----------+-----+--------------+--------+
+| Type       | Used | Available | LOC | Clock Region | Pblock |
++------------+------+-----------+-----+--------------+--------+
+| BUFGCE     |   23 |       288 |   0 |            0 |      0 |
+| BUFGCE_DIV |    0 |        48 |   0 |            0 |      0 |
+| BUFGCTRL   |    1 |        96 |   0 |            0 |      0 |
+| BUFG_GT    |    0 |       576 |   0 |            0 |      0 |
+| MMCM       |    1 |        12 |   0 |            0 |      0 |
+| PLL        |    0 |        24 |   0 |            0 |      0 |
++------------+------+-----------+-----+--------------+--------+
+
+
+2. Global Clock Resources
+-------------------------
+
++-----------+-----------+-----------------+------------+----------------+--------------+------+-------------------+-------------------+-------------+-----------------+--------------+--------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Root | Clock Delay Group | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                                        | Driver Pin                                                                                                                                                             | Net                                                                                                                                                             |
++-----------+-----------+-----------------+------------+----------------+--------------+------+-------------------+-------------------+-------------+-----------------+--------------+--------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g0        | src0      | BUFGCE/O        | None       | BUFGCE_X0Y47   | X4Y1         | X4Y1 |                   |                 6 |        7009 |               0 |       10.000 | clk_out1_config_mpsoc_clk_wiz_1_1                            | config_mpsoc_i/clk_wiz_1/inst/clkout1_buf/O                                                                                                                            | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                                                                          |
+| g1        | src1      | BUFGCE/O        | None       | BUFGCE_X0Y16   | X4Y0         | X3Y1 |                   |                 5 |         768 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31][0]_BUFG_inst/O | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
+| g2        | src2      | BUFGCTRL/O      | None       | BUFGCTRL_X0Y15 | X4Y1         | X4Y3 |                   |                 3 |         233 |               0 |       33.333 | config_mpsoc_i/mdm_1/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Using_FPGA.Native/O                                                                                                | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0                                                                                                   |
+| g2        | src3      | BUFGCTRL/O      | None       | BUFGCTRL_X0Y15 | X4Y1         | X4Y3 |                   |                 3 |         233 |               0 |       33.333 | config_mpsoc_i/mdm_1/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Using_FPGA.Native/O                                                                                                | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0                                                                                                   |
+| g3        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y24   | X4Y1         | X4Y1 |                   |                 2 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19_n_0_BUFGCE                                               |
+| g4        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y44   | X4Y1         | X4Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18_n_0_BUFGCE                                               |
+| g5        | src6      | BUFGCE/O        | None       | BUFGCE_X0Y42   | X4Y1         | X4Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17_n_0_BUFGCE                                               |
+| g6        | src7      | BUFGCE/O        | None       | BUFGCE_X0Y27   | X4Y1         | X4Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16_n_0_BUFGCE                                               |
+| g7        | src8      | BUFGCE/O        | None       | BUFGCE_X0Y39   | X4Y1         | X4Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15_n_0_BUFGCE                                               |
+| g8        | src9      | BUFGCE/O        | None       | BUFGCE_X0Y41   | X4Y1         | X3Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0_BUFGCE                                               |
+| g9        | src10     | BUFGCE/O        | None       | BUFGCE_X0Y30   | X4Y1         | X3Y1 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13_n_0_BUFGCE                                               |
+| g10       | src11     | BUFGCE/O        | None       | BUFGCE_X0Y31   | X4Y1         | X4Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22_n_0_BUFGCE                                                |
+| g11       | src12     | BUFGCE/O        | None       | BUFGCE_X0Y32   | X4Y1         | X2Y1 |                   |                 2 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0_BUFGCE                                               |
+| g12       | src13     | BUFGCE/O        | None       | BUFGCE_X0Y33   | X4Y1         | X3Y1 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11_n_0_BUFGCE                                               |
+| g13       | src14     | BUFGCE/O        | None       | BUFGCE_X0Y34   | X4Y1         | X3Y1 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10_n_0_BUFG_inst/O                                                 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10_n_0_BUFGCE                                               |
+| g14       | src15     | BUFGCE/O        | None       | BUFGCE_X0Y35   | X4Y1         | X2Y1 |                   |                 2 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0_BUFGCE                                                |
+| g15       | src16     | BUFGCE/O        | None       | BUFGCE_X0Y36   | X4Y1         | X2Y1 |                   |                 2 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0_BUFGCE                                                |
+| g16       | src17     | BUFGCE/O        | None       | BUFGCE_X0Y37   | X4Y1         | X2Y2 |                   |                 2 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE                                                |
+| g17       | src18     | BUFGCE/O        | None       | BUFGCE_X0Y22   | X4Y0         | X3Y2 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFGCE                                                |
+| g18       | src19     | BUFGCE/O        | None       | BUFGCE_X0Y1    | X4Y0         | X3Y2 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFGCE                                                |
+| g19       | src20     | BUFGCE/O        | None       | BUFGCE_X0Y2    | X4Y0         | X3Y2 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFGCE                                                |
+| g20       | src21     | BUFGCE/O        | None       | BUFGCE_X0Y19   | X4Y0         | X4Y2 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0_BUFGCE                                                |
+| g21       | src22     | BUFGCE/O        | None       | BUFGCE_X0Y38   | X4Y1         | X4Y0 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21_n_0_BUFGCE                                                |
+| g22       | src23     | BUFGCE/O        | None       | BUFGCE_X0Y4    | X4Y0         | X4Y2 |                   |                 2 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFGCE                                                |
+| g23       | src24     | BUFGCE/O        | None       | BUFGCE_X0Y5    | X4Y0         | X4Y2 |                   |                 1 |          61 |               0 |              |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0_BUFG_inst/O                                                  | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0_BUFGCE                                                |
++-----------+-----------+-----------------+------------+----------------+--------------+------+-------------------+-------------------+-------------+-----------------+--------------+--------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+
+
+3. Global Clock Source Details
+------------------------------
+
++-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source Id | Global Id | Driver Type/Pin    | Constraint | Site             | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock                                                 | Driver Pin                                                                                                                                                        | Net                                                                                                                                                        |
++-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| src0      | g0        | MMCME4_ADV/CLKOUT0 | None       | MMCM_X0Y1        | X4Y1         |           1 |               0 |              10.000 | clk_out1_config_mpsoc_clk_wiz_1_1                            | config_mpsoc_i/clk_wiz_1/inst/mmcme4_adv_inst/CLKOUT0                                                                                                             | config_mpsoc_i/clk_wiz_1/inst/clk_out1_config_mpsoc_clk_wiz_1_1                                                                                            |
+| src1      | g1        | LUT3/O             | None       | SLICE_X117Y32    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/WEST_I_Buffer_reg[0]_i_1/O | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31][0] |
+| src2      | g2        | BSCANE2/DRCK       | None       | CONFIG_SITE_X0Y0 | X7Y1         |           1 |               0 |              33.333 | config_mpsoc_i/mdm_1/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK | config_mpsoc_i/mdm_1/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK                                                                                                      | config_mpsoc_i/mdm_1/U0/Use_E2.BSCAN_I/DRCK                                                                                                                |
+| src3      | g2        | VCC/P              | None       |                  | n/a          |           0 |               0 |                     |                                                              | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/VCC_1/P                                                                                                       | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/VCC_2                                                                                                  |
+| src4      | g3        | LUT3/O             | None       | SLICE_X117Y90    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19_n_0                                                 |
+| src5      | g4        | LUT3/O             | None       | SLICE_X117Y91    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18_n_0                                                 |
+| src6      | g5        | LUT3/O             | None       | SLICE_X117Y90    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17_n_0                                                 |
+| src7      | g6        | LUT3/O             | None       | SLICE_X117Y88    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16_n_0                                                 |
+| src8      | g7        | LUT3/O             | None       | SLICE_X117Y90    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15_n_0                                                 |
+| src9      | g8        | LUT3/O             | None       | SLICE_X117Y84    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0                                                 |
+| src10     | g9        | LUT3/O             | None       | SLICE_X117Y84    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13_n_0                                                 |
+| src11     | g10       | LUT3/O             | None       | SLICE_X117Y90    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22_n_0                                                  |
+| src12     | g11       | LUT3/O             | None       | SLICE_X117Y90    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0                                                 |
+| src13     | g12       | LUT3/O             | None       | SLICE_X117Y90    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11_n_0                                                 |
+| src14     | g13       | LUT3/O             | None       | SLICE_X117Y91    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10/O                                                          | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10_n_0                                                 |
+| src15     | g14       | LUT3/O             | None       | SLICE_X117Y93    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0                                                  |
+| src16     | g15       | LUT3/O             | None       | SLICE_X117Y94    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0                                                  |
+| src17     | g16       | LUT3/O             | None       | SLICE_X117Y98    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0                                                  |
+| src18     | g17       | LUT3/O             | None       | SLICE_X117Y32    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0                                                  |
+| src19     | g18       | LUT3/O             | None       | SLICE_X117Y32    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0                                                  |
+| src20     | g19       | LUT3/O             | None       | SLICE_X117Y32    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0                                                  |
+| src21     | g20       | LUT3/O             | None       | SLICE_X118Y35    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0                                                  |
+| src22     | g21       | LUT3/O             | None       | SLICE_X117Y91    | X4Y1         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21_n_0                                                  |
+| src23     | g22       | LUT3/O             | None       | SLICE_X120Y31    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0                                                  |
+| src24     | g23       | LUT3/O             | None       | SLICE_X120Y32    | X4Y0         |           1 |               0 |                     |                                                              | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1/O                                                           | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0                                                  |
++-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+
+
+4. Clock Regions : Clock Primitives
+-----------------------------------
+
++-------------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+|                   |  Global Clock |     BUFGCE    |   BUFGCE_DIV  |    BUFGCTRL   |    BUFG_GT    |      MMCM     |      PLL      |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| Clock Region Name | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| X0Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y0              |     3 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y0              |     9 |    24 |     7 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y1              |     3 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y1              |     8 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y1              |     2 |    24 |    16 |    24 |     0 |     4 |     1 |     8 |     0 |     0 |     1 |     1 |     0 |     2 |
+| X5Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y2              |     1 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y2              |     6 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y2              |     6 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y2              |     2 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y3              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y4              |     1 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y5              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y6              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y7              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y8              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y9              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y10             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y11             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+* Global Clock column represents track count; while other columns represents cell counts
+
+
+5. Clock Regions : Load Primitives
+----------------------------------
+
++-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+|                   |   Global Clock   |        FF        |      LUTRAM      |  Block RAM (18K) |       URAM       |        DSP       |        GT        |      HARD IP     |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| Clock Region Name | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| X0Y0              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      72 |      0 |       4 |      0 |       1 |
+| X1Y0              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X2Y0              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |      90 |      0 |       0 |      0 |       0 |
+| X3Y0              |      3 |      24 |     36 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      54 |      0 |       0 |      0 |       0 |
+| X4Y0              |      9 |      24 |   1019 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       2 |
+| X5Y0              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |      90 |      0 |       0 |      0 |       0 |
+| X6Y0              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |      90 |      0 |       0 |      0 |       0 |
+| X7Y0              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      36 |      0 |       4 |      0 |       1 |
+| X0Y1              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y1              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y1              |      3 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y1              |      8 |      24 |   1281 |   21120 |      0 |    5760 |     10 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y1              |      2 |      24 |   2021 |   27840 |     26 |    6240 |     21 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y1              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y1              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y1              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y2              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y2              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y2              |      1 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y2              |      6 |      24 |    573 |   21120 |      0 |    5760 |      1 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y2              |      6 |      24 |   1961 |   27840 |    171 |    6240 |     12 |      48 |      0 |      16 |      3 |      96 |      0 |       0 |      0 |       0 |
+| X5Y2              |      2 |      24 |     22 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y2              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y2              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y3              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y3              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y3              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y3              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y3              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y3              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y3              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y3              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y4              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y4              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y4              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y4              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y4              |      1 |      24 |     82 |   25920 |      7 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y4              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y4              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y4              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y5              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y5              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y5              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y5              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y5              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y5              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y5              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y5              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y6              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y6              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y6              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y6              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y6              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y6              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y6              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y6              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y7              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y7              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y7              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y7              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y7              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y7              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y7              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y7              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y8              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y8              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y8              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y8              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y8              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y8              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y8              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y8              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y9              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y9              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y9              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y9              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y9              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y9              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y9              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y9              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y10             |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y10             |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y10             |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y10             |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y10             |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y10             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y10             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y10             |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y11             |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y11             |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y11             |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y11             |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y11             |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y11             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y11             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y11             |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+* Global Clock column represents track count; while other columns represents cell counts
+
+
+6. Clock Regions : Global Clock Summary
+---------------------------------------
+
+All Modules
++-----+----+----+----+----+----+----+----+----+
+|     | X0 | X1 | X2 | X3 | X4 | X5 | X6 | X7 |
++-----+----+----+----+----+----+----+----+----+
+| Y11 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y10 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y9  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y8  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y7  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y6  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y5  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y4  |  0 |  0 |  0 |  0 |  1 |  0 |  0 |  0 |
+| Y3  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y2  |  0 |  0 |  1 |  6 |  6 |  2 |  0 |  0 |
+| Y1  |  0 |  0 |  4 | 13 | 20 |  0 |  0 |  0 |
+| Y0  |  0 |  0 |  0 |  6 | 15 |  0 |  0 |  0 |
++-----+----+----+----+----+----+----+----+----+
+
+
+7. Clock Regions : Routing Resource Utilization
+-----------------------------------------------
+
+All Modules
++-------------------+----------------------+----------------------+----------------------+----------------------+
+|                   |        HROUTES       |        HDISTRS       |        VROUTES       |        VDISTRS       |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+| Clock Region Name | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+| X0Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y0              |    6 |    24 | 25.00 |    3 |    24 | 12.50 |    1 |    24 |  4.17 |    2 |    24 |  8.33 |
+| X4Y0              |    8 |    24 | 33.33 |    9 |    24 | 37.50 |    6 |    24 | 25.00 |    8 |    24 | 33.33 |
+| X5Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y1              |    6 |    24 | 25.00 |    3 |    24 | 12.50 |    0 |    24 |  0.00 |    3 |    24 | 12.50 |
+| X3Y1              |   15 |    24 | 62.50 |    8 |    24 | 33.33 |    5 |    24 | 20.83 |    4 |    24 | 16.67 |
+| X4Y1              |   20 |    24 | 83.33 |    2 |    24 |  8.33 |    9 |    24 | 37.50 |    2 |    24 |  8.33 |
+| X5Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y2              |    0 |    24 |  0.00 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X3Y2              |    0 |    24 |  0.00 |    6 |    24 | 25.00 |    3 |    24 | 12.50 |    3 |    24 | 12.50 |
+| X4Y2              |    0 |    24 |  0.00 |    6 |    24 | 25.00 |    4 |    24 | 16.67 |    4 |    24 | 16.67 |
+| X5Y2              |    0 |    24 |  0.00 |    2 |    24 |  8.33 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X5Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y4              |    0 |    24 |  0.00 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+
+
+8. Device Cell Placement Summary for Global Clock g0
+----------------------------------------------------
+
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                             | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                    |
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| g0        | BUFGCE/O        | X4Y1              | clk_out1_config_mpsoc_clk_wiz_1_1 |      10.000 | {0.000 5.000} | X4Y1     |        7009 |        0 |              0 |        0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1 |
++-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+-------+--------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3    | X4           | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+-------+--------------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |     0 |            0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |   574 |         2022 |  0 |  0 |  0 |                     1 |
+| Y1  |  0 |  0 |  0 |  1291 | (R) (D) 2067 |  0 |  0 |  0 |                     1 |
+| Y0  |  0 |  0 |  0 |    36 |         1019 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+-------+--------------+----+----+----+-----------------------+
+
+
+9. Device Cell Placement Summary for Global Clock g1
+----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                                                                             |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g1        | BUFGCE/O        | X4Y0              |       |             |               | X3Y1     |         768 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+---------+----------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3      | X4       | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+---------+----------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |       0 |        0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |     147 |      191 |  0 |  0 |  0 |                     1 |
+| Y1  |  0 |  0 |  0 | (R) 166 |        0 |  0 |  0 |  0 |                     1 |
+| Y0  |  0 |  0 |  0 |       8 |  (D) 256 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+---------+----------+----+----+----+-----------------------+
+
+
+10. Device Cell Placement Summary for Global Clock g2
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+--------------------------------------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                                                        | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                           |
++-----------+-----------------+-------------------+--------------------------------------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------+
+| g2        | BUFGCTRL/O      | X4Y1              | config_mpsoc_i/mdm_1/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK |      33.333 | {0.000 16.667} | X4Y3     |         233 |        0 |              0 |        0 | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0 |
++-----------+-----------------+-------------------+--------------------------------------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+-----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5  | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+-----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |     89 |   0 |  0 |  0 |                     1 |
+| Y3  |  0 |  0 |  0 |  0 |  (R) 0 |   0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |    122 |  22 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |   0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |      0 |   0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+-----+----+----+-----------------------+
+
+
+11. Device Cell Placement Summary for Global Clock g3
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g3        | BUFGCE/O        | X4Y1              |       |             |               | X4Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 | (R) (D) 27 |  0 |  0 |  0 |                     1 |
+| Y0  |  0 |  0 |  0 |  0 |         34 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+12. Device Cell Placement Summary for Global Clock g4
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g4        | BUFGCE/O        | X4Y1              |       |             |               | X4Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+13. Device Cell Placement Summary for Global Clock g5
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g5        | BUFGCE/O        | X4Y1              |       |             |               | X4Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+14. Device Cell Placement Summary for Global Clock g6
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g6        | BUFGCE/O        | X4Y1              |       |             |               | X4Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+15. Device Cell Placement Summary for Global Clock g7
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g7        | BUFGCE/O        | X4Y1              |       |             |               | X4Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+16. Device Cell Placement Summary for Global Clock g8
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g8        | BUFGCE/O        | X4Y1              |       |             |               | X3Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |      0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 | (R) 61 |      0 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+17. Device Cell Placement Summary for Global Clock g9
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g9        | BUFGCE/O        | X4Y1              |       |             |               | X3Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 | (R) 61 |  (D) 0 |  0 |  0 |  0 |                     0 |
+| Y0  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+18. Device Cell Placement Summary for Global Clock g10
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g10       | BUFGCE/O        | X4Y1              |       |             |               | X4Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+19. Device Cell Placement Summary for Global Clock g11
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g11       | BUFGCE/O        | X4Y1              |       |             |               | X2Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2     | X3  | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 | (R) 30 |  31 |  (D) 0 |  0 |  0 |  0 |                     0 |
+| Y0  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+
+
+20. Device Cell Placement Summary for Global Clock g12
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g12       | BUFGCE/O        | X4Y1              |       |             |               | X3Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 | (R) 61 |  (D) 0 |  0 |  0 |  0 |                     0 |
+| Y0  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+21. Device Cell Placement Summary for Global Clock g13
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                               |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+| g13       | BUFGCE/O        | X4Y1              |       |             |               | X3Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 | (R) 61 |  (D) 0 |  0 |  0 |  0 |                     0 |
+| Y0  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+22. Device Cell Placement Summary for Global Clock g14
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g14       | BUFGCE/O        | X4Y1              |       |             |               | X2Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2     | X3  | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 | (R) 20 |  41 |  (D) 0 |  0 |  0 |  0 |                     0 |
+| Y0  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+
+
+23. Device Cell Placement Summary for Global Clock g15
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g15       | BUFGCE/O        | X4Y1              |       |             |               | X2Y1     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2     | X3  | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 | (R) 18 |  43 |  (D) 0 |  0 |  0 |  0 |                     0 |
+| Y0  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+
+
+24. Device Cell Placement Summary for Global Clock g16
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g16       | BUFGCE/O        | X4Y1              |       |             |               | X2Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2     | X3  | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 | (R) 30 |  31 |      0 |  0 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |      0 |   0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |      0 |   0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+--------+-----+--------+----+----+----+-----------------------+
+
+
+25. Device Cell Placement Summary for Global Clock g17
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g17       | BUFGCE/O        | X4Y0              |       |             |               | X3Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 | (R) 61 |      0 |  0 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |      0 |  (D) 0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+26. Device Cell Placement Summary for Global Clock g18
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g18       | BUFGCE/O        | X4Y0              |       |             |               | X3Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 | (R) 61 |      0 |  0 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |      0 |  (D) 0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+27. Device Cell Placement Summary for Global Clock g19
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g19       | BUFGCE/O        | X4Y0              |       |             |               | X3Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 | (R) 61 |      0 |  0 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |      0 |  (D) 0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+28. Device Cell Placement Summary for Global Clock g20
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g20       | BUFGCE/O        | X4Y0              |       |             |               | X4Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+29. Device Cell Placement Summary for Global Clock g21
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g21       | BUFGCE/O        | X4Y1              |       |             |               | X4Y0     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+30. Device Cell Placement Summary for Global Clock g22
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g22       | BUFGCE/O        | X4Y0              |       |             |               | X4Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 | (R) 58 |  3 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+31. Device Cell Placement Summary for Global Clock g23
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                              |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+| g23       | BUFGCE/O        | X4Y0              |       |             |               | X4Y2     |          61 |        0 |              0 |        0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------------------------------------------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 | (R) 61 |  0 |  0 |  0 |                     0 |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+32. Clock Region Cell Placement per Global Clock: Region X3Y0
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g0        | 23    | BUFGCE/O        | None       |          36 |               0 | 36 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                                                                          |
+| g1        | 16    | BUFGCE/O        | None       |           8 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
+| g8        | 17    | BUFGCE/O        | None       |          61 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0_BUFGCE                                               |
+| g17+      | 22    | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFGCE                                                |
+| g18+      | 1     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFGCE                                                |
+| g19+      | 2     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFGCE                                                |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+33. Clock Region Cell Placement per Global Clock: Region X4Y0
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g0        | 23    | BUFGCE/O        | None       |        1019 |               0 | 1019 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                                                                          |
+| g1        | 16    | BUFGCE/O        | None       |         256 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
+| g3        | 0     | BUFGCE/O        | None       |          34 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19_n_0_BUFGCE                                               |
+| g4        | 20    | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18_n_0_BUFGCE                                               |
+| g5        | 18    | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17_n_0_BUFGCE                                               |
+| g6        | 3     | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16_n_0_BUFGCE                                               |
+| g7        | 15    | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15_n_0_BUFGCE                                               |
+| g10       | 7     | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22_n_0_BUFGCE                                                |
+| g17+      | 22    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFGCE                                                |
+| g18+      | 1     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFGCE                                                |
+| g19+      | 2     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFGCE                                                |
+| g20+      | 19    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0_BUFGCE                                                |
+| g21       | 14    | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21_n_0_BUFGCE                                                |
+| g22+      | 4     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFGCE                                                |
+| g23+      | 5     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0_BUFGCE                                                |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+34. Clock Region Cell Placement per Global Clock: Region X2Y1
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------------------+
+| g11       | 8     | BUFGCE/O        | None       |          30 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0_BUFGCE |
+| g14       | 11    | BUFGCE/O        | None       |          20 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0_BUFGCE  |
+| g15       | 12    | BUFGCE/O        | None       |          18 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0_BUFGCE  |
+| g16+      | 13    | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE  |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+35. Clock Region Cell Placement per Global Clock: Region X3Y1
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g0        | 23    | BUFGCE/O        | None       |        1291 |               0 | 1281 |           0 |   10 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                                                                          |
+| g1        | 16    | BUFGCE/O        | None       |         166 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
+| g8+       | 17    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0_BUFGCE                                               |
+| g9        | 6     | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13_n_0_BUFGCE                                               |
+| g11       | 8     | BUFGCE/O        | None       |          31 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0_BUFGCE                                               |
+| g12       | 9     | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11_n_0_BUFGCE                                               |
+| g13       | 10    | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10_n_0_BUFGCE                                               |
+| g14       | 11    | BUFGCE/O        | None       |          41 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0_BUFGCE                                                |
+| g15       | 12    | BUFGCE/O        | None       |          43 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0_BUFGCE                                                |
+| g16+      | 13    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE                                                |
+| g17+      | 22    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFGCE                                                |
+| g18+      | 1     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFGCE                                                |
+| g19+      | 2     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFGCE                                                |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+36. Clock Region Cell Placement per Global Clock: Region X4Y1
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                               |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------------------+
+| g0        | 23    | BUFGCE/O        | None       |        2067 |               0 | 2021 |          26 |   20 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                            |
+| g2+       | 21    | BUFGCTRL/O      | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0                                                     |
+| g3        | 0     | BUFGCE/O        | None       |          27 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[127].g1/x_reg[31]_i_1__19_n_0_BUFGCE |
+| g4+       | 20    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[159].g1/x_reg[31]_i_1__18_n_0_BUFGCE |
+| g5+       | 18    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[191].g1/x_reg[31]_i_1__17_n_0_BUFGCE |
+| g6+       | 3     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[223].g1/x_reg[31]_i_1__16_n_0_BUFGCE |
+| g7+       | 15    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[255].g1/x_reg[31]_i_1__15_n_0_BUFGCE |
+| g8+       | 17    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[287].g1/x_reg[31]_i_1__14_n_0_BUFGCE |
+| g9+       | 6     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[319].g1/x_reg[31]_i_2__13_n_0_BUFGCE |
+| g10+      | 7     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[31].g1/x_reg[31]_i_1__22_n_0_BUFGCE  |
+| g11+      | 8     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[351].g1/x_reg[31]_i_2__12_n_0_BUFGCE |
+| g12+      | 9     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[383].g1/x_reg[31]_i_2__11_n_0_BUFGCE |
+| g13+      | 10    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[415].g1/x_reg[31]_i_2__10_n_0_BUFGCE |
+| g14+      | 11    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[447].g1/x_reg[31]_i_2__9_n_0_BUFGCE  |
+| g15+      | 12    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[479].g1/x_reg[31]_i_2__8_n_0_BUFGCE  |
+| g16+      | 13    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE  |
+| g20+      | 19    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0_BUFGCE  |
+| g21+      | 14    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[63].g1/x_reg[31]_i_1__21_n_0_BUFGCE  |
+| g22+      | 4     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFGCE  |
+| g23+      | 5     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0_BUFGCE  |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+37. Clock Region Cell Placement per Global Clock: Region X2Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                              |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------------------------------------------------------------------------+
+| g16       | 13    | BUFGCE/O        | None       |          30 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+38. Clock Region Cell Placement per Global Clock: Region X3Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g0        | 23    | BUFGCE/O        | None       |         574 |               0 | 573 |           0 |    1 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                                                                          |
+| g1        | 16    | BUFGCE/O        | None       |         147 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
+| g16       | 13    | BUFGCE/O        | None       |          31 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[511].g1/x_reg[31]_i_2__7_n_0_BUFGCE                                                |
+| g17       | 22    | BUFGCE/O        | None       |          61 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[543].g1/x_reg[31]_i_2__6_n_0_BUFGCE                                                |
+| g18       | 1     | BUFGCE/O        | None       |          61 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[575].g1/x_reg[31]_i_2__5_n_0_BUFGCE                                                |
+| g19       | 2     | BUFGCE/O        | None       |          61 |               0 |   0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[607].g1/x_reg[31]_i_2__4_n_0_BUFGCE                                                |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+39. Clock Region Cell Placement per Global Clock: Region X4Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| g0        | 23    | BUFGCE/O        | None       |        2022 |               0 | 1855 |         155 |    9 |    0 |   3 |  0 |    0 |   0 |       0 | config_mpsoc_i/clk_wiz_1/inst/clk_out1                                                                                                                          |
+| g1        | 16    | BUFGCE/O        | None       |         191 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/top/EAST_IO/psc_tile[1].ps_convert_tile/psc_block[2].ps_convert_block/slv_reg0_reg[31]_BUFG[0] |
+| g2        | 21    | BUFGCTRL/O      | None       |         122 |               0 |  106 |          16 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0                                                                                                   |
+| g20       | 19    | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[639].g1/x_reg[31]_i_2__3_n_0_BUFGCE                                                |
+| g22       | 4     | BUFGCE/O        | None       |          58 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFGCE                                                |
+| g23       | 5     | BUFGCE/O        | None       |          61 |               0 |    0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[703].g1/x_reg[31]_i_2__1_n_0_BUFGCE                                                |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+40. Clock Region Cell Placement per Global Clock: Region X5Y2
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                              |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------------------------------------------------------------------------+
+| g2        | 21    | BUFGCTRL/O      | None       |          22 |               0 | 22 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0                                                    |
+| g22       | 4     | BUFGCE/O        | None       |           3 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mySPAR_v1_0/inst/Bit_Serial_v1_0_S00_AXI_inst/top/tanh/genbit[671].g1/x_reg[31]_i_2__2_n_0_BUFGCE |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+------------------------------------------------------------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+41. Clock Region Cell Placement per Global Clock: Region X4Y4
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                                           |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
+| g2        | 21    | BUFGCTRL/O      | None       |          89 |               0 | 82 |           7 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | config_mpsoc_i/mdm_1/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0 |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
