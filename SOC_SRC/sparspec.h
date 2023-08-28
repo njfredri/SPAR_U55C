@@ -35,14 +35,11 @@
 #define MAX_LEN 32
 #define FIXED_POINT_FRACTIONAL_BITS 16
 
-#define Array_dim  1
-#define Tile_dim  1
+#define Array_dim  4 //Edit this when changing configurations
+#define Tile_dim  5 //Edit this when changing configurations
+#define SPAR_dim (Array_dim*Tile_dim*4) //number of PEs in either the vertical or horizontal direction
 #define divide_size_W 50
 #define divide_size_U 20
-#define m1 4						//size of hidden layers
-#define p 4							//size of inputs
-#define q 1							//size of outputs
-#define epoch 1
 
 #define MAX_LEN 32		// Size of PE registers
 #define LEN  (MAX_LEN << 24)
