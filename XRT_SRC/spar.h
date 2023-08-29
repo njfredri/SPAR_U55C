@@ -13,7 +13,7 @@
 #define FIXED_POINT_FRACTIONAL_BITS 16
 #define Array_dim  1
 #define Tile_dim  2
-
+#define SPAR_dim (Array_dim*Tile_dim*4) //number of PEs in either the vertical or horizontal direction
 
 #define MYSPAR_S00_AXI_SLV_REG0_OFFSET 0
 #define MYSPAR_S00_AXI_SLV_REG1_OFFSET 4
